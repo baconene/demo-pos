@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "DEMO POS",
+    "slug": "demo-pos",
+    "version": "0.3.0",
+    "orientation": "portrait",
+    "scheme": "demopos",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "./plugins/withThermalPrinter"
+    ],
+    "android": {
+      "package": "com.baconologies.demopos",
+      "versionCode": 3,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#F8FAFC"
+      }
+    },
+    "experiments": {
+      "typedRoutes": false
+    },
+    "icon": "./assets/icon.png"
+  }
+}

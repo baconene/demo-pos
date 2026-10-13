@@ -1,0 +1,1036 @@
+{
+  "client": "DEMO POS",
+  "source_ref": "feature/android-pos-app",
+  "source_commit": "5a3761d54e7f9e56eb6032d1993e34d21c868106",
+  "destination_repository": "baconene/demo-pos",
+  "files_with_common_brand_replacements": 46,
+  "residual_branding_count": 203,
+  "residual_branding_examples": [
+    {
+      "file": "package-lock.json",
+      "line": 2,
+      "excerpt": "\"name\": \"bypassgrill_clone\","
+    },
+    {
+      "file": "package-lock.json",
+      "line": 365,
+      "excerpt": "\"integrity\": \"sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==\","
+    },
+    {
+      "file": "QUICK_START.md",
+      "line": 13,
+      "excerpt": "mysql -u root -p -e \"CREATE DATABASE bypassgrill CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\""
+    },
+    {
+      "file": "QUICK_START.md",
+      "line": 24,
+      "excerpt": "DB_DATABASE=bypassgrill"
+    },
+    {
+      "file": "QUICK_START.md",
+      "line": 52,
+      "excerpt": "- Email: `maria@bypassgrill.local`"
+    },
+    {
+      "file": "QUICK_START.md",
+      "line": 56,
+      "excerpt": "- Email: `rosa@bypassgrill.local`"
+    },
+    {
+      "file": "QUICK_START.md",
+      "line": 60,
+      "excerpt": "- Email: `anna@bypassgrill.local`"
+    },
+    {
+      "file": "QUICK_START.md",
+      "line": 127,
+      "excerpt": "- Database: `mysql bypassgrill -u root -p`"
+    },
+    {
+      "file": "API_TESTING_GUIDE.md",
+      "line": 24,
+      "excerpt": "\"email\": \"maria@bypassgrill.local\","
+    },
+    {
+      "file": "API_TESTING_GUIDE.md",
+      "line": 36,
+      "excerpt": "\"email\": \"maria@bypassgrill.local\","
+    },
+    {
+      "file": "API_TESTING_GUIDE.md",
+      "line": 292,
+      "excerpt": "\"email\": \"maria@bypassgrill.local\","
+    },
+    {
+      "file": "API_TESTING_GUIDE.md",
+      "line": 340,
+      "excerpt": "\"email\": \"rosa@bypassgrill.local\","
+    },
+    {
+      "file": "API_TESTING_GUIDE.md",
+      "line": 374,
+      "excerpt": "\"email\": \"anna@bypassgrill.local\","
+    },
+    {
+      "file": "WELCOME_PAGE.md",
+      "line": 3,
+      "excerpt": "The public `/` page presents Pork Monster Ribs and the active menu supplied by `WelcomeController`. Category filters, prices, descriptions, and uploaded product"
+    },
+    {
+      "file": "IMPLEMENTATION_SUMMARY.md",
+      "line": 250,
+      "excerpt": "**Demo User:** maria@bypassgrill.local / password"
+    },
+    {
+      "file": "IMPLEMENTATION_SUMMARY.md",
+      "line": 260,
+      "excerpt": "**Demo User:** rosa@bypassgrill.local / password"
+    },
+    {
+      "file": "IMPLEMENTATION_SUMMARY.md",
+      "line": 272,
+      "excerpt": "**Demo User:** anna@bypassgrill.local / password"
+    },
+    {
+      "file": "IMPLEMENTATION_SUMMARY.md",
+      "line": 453,
+      "excerpt": "Cashier: maria@bypassgrill.local / password"
+    },
+    {
+      "file": "IMPLEMENTATION_SUMMARY.md",
+      "line": 454,
+      "excerpt": "Cashier: john@bypassgrill.local / password"
+    },
+    {
+      "file": "IMPLEMENTATION_SUMMARY.md",
+      "line": 455,
+      "excerpt": "Kitchen: rosa@bypassgrill.local / password"
+    },
+    {
+      "file": "IMPLEMENTATION_SUMMARY.md",
+      "line": 456,
+      "excerpt": "Kitchen: pedro@bypassgrill.local / password"
+    },
+    {
+      "file": "IMPLEMENTATION_SUMMARY.md",
+      "line": 457,
+      "excerpt": "Auditor: anna@bypassgrill.local / password"
+    },
+    {
+      "file": "IMPLEMENTATION_SUMMARY.md",
+      "line": 492,
+      "excerpt": "# DB_DATABASE=bypassgrill"
+    },
+    {
+      "file": "IMPLEMENTATION_SUMMARY.md",
+      "line": 496,
+      "excerpt": "mysql -u root -e \"CREATE DATABASE bypassgrill;\""
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 82,
+      "excerpt": "cd bypassgrill"
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 102,
+      "excerpt": "DB_DATABASE=bypassgrill"
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 163,
+      "excerpt": "MAIL_FROM_ADDRESS=noreply@bypassgrill.local"
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 367,
+      "excerpt": "| Cashier 1 | maria@bypassgrill.local | password |"
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 368,
+      "excerpt": "| Cashier 2 | john@bypassgrill.local | password |"
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 369,
+      "excerpt": "| Kitchen 1 | rosa@bypassgrill.local | password |"
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 370,
+      "excerpt": "| Kitchen 2 | pedro@bypassgrill.local | password |"
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 371,
+      "excerpt": "| Auditor | anna@bypassgrill.local | password |"
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 470,
+      "excerpt": "Create `/etc/systemd/system/bypassgrill-queue.service`:"
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 480,
+      "excerpt": "WorkingDirectory=/var/www/bypassgrill"
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 490,
+      "excerpt": "sudo systemctl enable bypassgrill-queue"
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 491,
+      "excerpt": "sudo systemctl start bypassgrill-queue"
+    },
+    {
+      "file": "SYSTEM_DOCUMENTATION.md",
+      "line": 553,
+      "excerpt": "mysql -u root bypassgrill"
+    },
+    {
+      "file": "public/sw.js",
+      "line": 1,
+      "excerpt": "// BypassGrill POS — Service Worker"
+    },
+    {
+      "file": "database/seeders/BypassGrillInventorySeeder.php",
+      "line": 8,
+      "excerpt": "class BypassGrillInventorySeeder extends Seeder"
+    },
+    {
+      "file": "android-app/app/syncing.tsx",
+      "line": 5,
+      "excerpt": "return <SafeAreaView style={s.page}><View style={s.center}><Animated.View style={[s.logo,{transform:[{scale:pulse.interpolate({inputRange:[0,1],outputRange:[1,1"
+    },
+    {
+      "file": "android-app/app/syncing.tsx",
+      "line": 6,
+      "excerpt": "const s=StyleSheet.create({page:{flex:1,backgroundColor:'#090909'},center:{flex:1,justifyContent:'center',alignItems:'center',padding:32},logo:{width:230,height"
+    },
+    {
+      "file": "android-app/app/index.tsx",
+      "line": 37,
+      "excerpt": "<Text style={s.title}>Today at <Text style={s.em}>the grill.</Text></Text>"
+    },
+    {
+      "file": "android-app/src/db/database.ts",
+      "line": 26,
+      "excerpt": "export function database(){if(!instance)instance=(async()=>{try{const db=await SQLite.openDatabaseAsync('bypass-grill-pos.db');await migrate(db);return db}catch"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 2,
+      "excerpt": ".grill-shell {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 8,
+      "excerpt": "html:has(.grill-shell) {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 11,
+      "excerpt": ".grill-sidebar,"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 12,
+      "excerpt": ".grill-user-menu {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 35,
+      "excerpt": ".grill-sidebar [data-sidebar='sidebar'],"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 36,
+      "excerpt": ".grill-sidebar[data-mobile='true'] {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 39,
+      "excerpt": ".grill-sidebar-header {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 45,
+      "excerpt": ".grill-sidebar .grill-brand-link {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 49,
+      "excerpt": ".grill-sidebar [data-sidebar='group-label'] {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 56,
+      "excerpt": ".grill-sidebar [data-sidebar='group'] + [data-sidebar='group'] {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 59,
+      "excerpt": ".grill-sidebar [data-sidebar='menu-button'] {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 68,
+      "excerpt": ".grill-sidebar [data-sidebar='menu-button']:hover {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 72,
+      "excerpt": ".grill-sidebar [data-sidebar='menu-button'][data-active='true'] {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 78,
+      "excerpt": ".grill-sidebar [data-sidebar='menu-button'][data-size='default'] {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 81,
+      "excerpt": ".grill-sidebar-footer {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 86,
+      "excerpt": ".grill-sidebar [data-slot='avatar-fallback'],"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 87,
+      "excerpt": ".grill-user-menu [data-slot='avatar-fallback'] {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 91,
+      "excerpt": ".grill-mobile-close {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 96,
+      "excerpt": ".grill-sidebar[data-mobile='true'] .grill-brand-link {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 99,
+      "excerpt": ".grill-user-menu {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 103,
+      "excerpt": ".grill-workspace-header {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 110,
+      "excerpt": ".grill-sidebar-toggle {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 116,
+      "excerpt": ".grill-sidebar-toggle:hover,"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 117,
+      "excerpt": ".grill-sidebar-toggle:focus-visible {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 121,
+      "excerpt": ".grill-header-divider {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 127,
+      "excerpt": ".grill-header-tag {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 133,
+      "excerpt": ".grill-workspace-header .grill-breadcrumbs ol {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 138,
+      "excerpt": ".grill-workspace-header .grill-breadcrumbs a {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 142,
+      "excerpt": ".grill-workspace-header .grill-breadcrumbs a:hover {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 145,
+      "excerpt": ".grill-workspace-header .grill-breadcrumbs [aria-current='page'] {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 154,
+      "excerpt": ".grill-workspace-header .grill-breadcrumbs [role='presentation'] {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 157,
+      "excerpt": ".grill-sidebar :focus-visible,"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 158,
+      "excerpt": ".grill-user-menu :focus-visible,"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 159,
+      "excerpt": ".grill-workspace-header :focus-visible {"
+    },
+    {
+      "file": "resources/css/grill-navigation.css",
+      "line": 164,
+      "excerpt": ".grill-sidebar [data-sidebar='menu-button'] {"
+    },
+    {
+      "file": "resources/js/components/AppSidebar.vue",
+      "line": 144,
+      "excerpt": "<Sidebar collapsible=\"icon\" variant=\"inset\" class=\"grill-sidebar\">"
+    },
+    {
+      "file": "resources/js/components/AppSidebar.vue",
+      "line": 145,
+      "excerpt": "<SidebarHeader class=\"grill-sidebar-header\">"
+    },
+    {
+      "file": "resources/js/components/AppSidebar.vue",
+      "line": 151,
+      "excerpt": "class=\"grill-brand-link\""
+    },
+    {
+      "file": "resources/js/components/AppSidebar.vue",
+      "line": 160,
+      "excerpt": "class=\"grill-mobile-close md:hidden\""
+    },
+    {
+      "file": "resources/js/components/AppSidebar.vue",
+      "line": 174,
+      "excerpt": "<SidebarFooter class=\"grill-sidebar-footer\">"
+    },
+    {
+      "file": "resources/js/components/AppSidebar.vue",
+      "line": 182,
+      "excerpt": "<style src=\"../../css/grill-navigation.css\"></style>"
+    },
+    {
+      "file": "resources/js/components/AppSidebarHeader.vue",
+      "line": 19,
+      "excerpt": "class=\"grill-workspace-header flex min-h-16 shrink-0 items-center justify-between gap-3 border-b px-4 py-3 md:px-6\""
+    },
+    {
+      "file": "resources/js/components/AppSidebarHeader.vue",
+      "line": 22,
+      "excerpt": "<SidebarTrigger class=\"grill-sidebar-toggle shrink-0\" />"
+    },
+    {
+      "file": "resources/js/components/AppSidebarHeader.vue",
+      "line": 23,
+      "excerpt": "<span class=\"grill-header-divider\" aria-hidden=\"true\"></span>"
+    },
+    {
+      "file": "resources/js/components/AppSidebarHeader.vue",
+      "line": 30,
+      "excerpt": "class=\"grill-header-tag hidden shrink-0 items-center gap-1.5 lg:flex\""
+    },
+    {
+      "file": "resources/js/components/AppShell.vue",
+      "line": 21,
+      "excerpt": "<SidebarProvider v-else :default-open=\"isOpen\" class=\"grill-shell\">"
+    },
+    {
+      "file": "resources/js/components/NavUser.vue",
+      "line": 39,
+      "excerpt": "class=\"grill-user-menu w-(--reka-dropdown-menu-trigger-width) min-w-56 rounded-lg\""
+    },
+    {
+      "file": "resources/js/components/Breadcrumbs.vue",
+      "line": 21,
+      "excerpt": "<Breadcrumb class=\"grill-breadcrumbs min-w-0\">"
+    },
+    {
+      "file": "resources/js/utils/printReceipt.ts",
+      "line": 3,
+      "excerpt": "const SETTINGS_KEY = 'bypassgrill_print_settings'"
+    },
+    {
+      "file": "resources/js/utils/printReceipt.ts",
+      "line": 73,
+      "excerpt": "<div class=\"center bold large\">BYPASSGRILL</div>"
+    },
+    {
+      "file": "resources/js/utils/printReceipt.ts",
+      "line": 74,
+      "excerpt": "<div class=\"center muted\" style=\"font-size:9px;\">Filipino Grill Restaurant</div>"
+    },
+    {
+      "file": "resources/js/utils/offlineQueue.ts",
+      "line": 29,
+      "excerpt": "_db = await openDB('bypassgrill-pos', 1, {"
+    },
+    {
+      "file": "resources/js/utils/offlineQueue.ts",
+      "line": 49,
+      "excerpt": "return parseInt(localStorage.getItem('bypassgrill_offline_seq') ?? '0') || 0"
+    },
+    {
+      "file": "resources/js/utils/offlineQueue.ts",
+      "line": 56,
+      "excerpt": "try { localStorage.setItem('bypassgrill_offline_seq', String(n)) } catch { /* ignore */ }"
+    },
+    {
+      "file": "resources/js/layouts/AuthLayout.vue",
+      "line": 17,
+      "excerpt": "<!-- Left panel — BypassGrill branding -->"
+    },
+    {
+      "file": "resources/js/layouts/AuthLayout.vue",
+      "line": 40,
+      "excerpt": "Your Grill,<br/>"
+    },
+    {
+      "file": "resources/js/data/functionality.ts",
+      "line": 391,
+      "excerpt": "'Use an available product and a configured Cash tender. The example is 1 Pork Monster Ribs at PHP 185.',"
+    },
+    {
+      "file": "resources/js/data/functionality.ts",
+      "line": 411,
+      "excerpt": "'Click the Pork Monster Ribs product card. Use search or the category tabs when needed.',"
+    },
+    {
+      "file": "resources/js/data/functionality.ts",
+      "line": 419,
+      "excerpt": "'Pork Monster Ribs appears in Current order.',"
+    },
+    {
+      "file": "resources/js/data/functionality.ts",
+      "line": 558,
+      "excerpt": "'The cart total updates. The example changes ribs from 1 to 2.',"
+    },
+    {
+      "file": "resources/js/data/functionality.ts",
+      "line": 1208,
+      "excerpt": "summary: 'See when the grill is actually busy.',"
+    },
+    {
+      "file": "resources/js/pages/FinancialPage.vue",
+      "line": 2515,
+      "excerpt": "/* Welcome-page palette: ink, cream and grill orange. */"
+    },
+    {
+      "file": "resources/js/pages/HrisPage.vue",
+      "line": 449,
+      "excerpt": "<div class=\"grill-hris\">"
+    },
+    {
+      "file": "resources/js/pages/HrisPage.vue",
+      "line": 456,
+      "excerpt": "<h1>The crew behind <em>the grill.</em></h1>"
+    },
+    {
+      "file": "resources/js/pages/HrisPage.vue",
+      "line": 1291,
+      "excerpt": ".grill-hris {"
+    },
+    {
+      "file": "resources/js/pages/HrisPage.vue",
+      "line": 1828,
+      "excerpt": ".grill-hris :focus-visible,"
+    },
+    {
+      "file": "resources/js/pages/HrisPage.vue",
+      "line": 1833,
+      "excerpt": ".grill-hris button,"
+    },
+    {
+      "file": "resources/js/pages/HrisPage.vue",
+      "line": 2055,
+      "excerpt": ".grill-hris {"
+    },
+    {
+      "file": "resources/js/pages/CashierDashboard.vue",
+      "line": 1479,
+      "excerpt": "/* Grill theme tokens: the Tailwind utilities on this page (and its teleported"
+    },
+    {
+      "file": "resources/js/pages/InventoryManagement.vue",
+      "line": 927,
+      "excerpt": "placeholder=\"e.g. Pork Ribs\""
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 111,
+      "excerpt": "alt: 'Stock photograph of glazed pork ribs on a serving board',"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 116,
+      "excerpt": "alt: 'Stock photograph of barbecue pork ribs at the grill',"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 209,
+      "excerpt": "<div ref=\"root\" class=\"grill-site\" :class=\"{ 'motion-paused': paused }\">"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 226,
+      "excerpt": ">GRILL / SIMPLE. FAST. RELIABLE.</span"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 231,
+      "excerpt": "<a href=\"#menu\">The menu</a><a href=\"#our-grill\">About us</a"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 249,
+      "excerpt": "PORK.<br />MONSTER.<br /><span>RIBS.</span"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 256,
+      "excerpt": "appetite. We'll bring the ribs."
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 266,
+      "excerpt": "<a href=\"#our-grill\" class=\"small-scroll\""
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 283,
+      "excerpt": "'grill-crop': index === 1,"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 303,
+      "excerpt": "<div class=\"rib-stamp\" aria-hidden=\"true\">"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 304,
+      "excerpt": "BIG<br /><strong>RIB</strong><br />ENERGY"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 338,
+      "excerpt": "<h2>Pick your<br /><em>grill fix.</em></h2>"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 380,
+      "excerpt": "/><template v-else-if=\"/rib/i.test(product.name)\""
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 383,
+      "excerpt": "alt=\"Illustrative stock photograph of pork ribs\""
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 397,
+      "excerpt": "v-if=\"/rib/i.test(product.name)\""
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 447,
+      "excerpt": "alt=\"Illustrative pork ribs photograph\""
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 456,
+      "excerpt": "Your next rib craving starts at DEMO POS."
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 475,
+      "excerpt": "<section id=\"our-grill\" class=\"story section-pad\" data-reveal>"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 479,
+      "excerpt": "alt=\"Illustrative photograph of glazed pork ribs at a barbecue grill\""
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 489,
+      "excerpt": "<h2>Take a break.<br />Make it <em>ribs.</em></h2>"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 493,
+      "excerpt": "proper grill fix will do."
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 497,
+      "excerpt": "Monster Ribs part of your next DEMO POS stop."
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 547,
+      "excerpt": ">Let's talk ribs <ArrowUpRight :size=\"20\""
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 556,
+      "excerpt": ">DEMO POS<span class=\"brand-sub\">BIG RIB ENERGY.</span></a"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 715,
+      "excerpt": "<p class=\"eyebrow\">LET'S CHECK WITH THE GRILL</p>"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 768,
+      "excerpt": ".grill-site {"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 777,
+      "excerpt": ".grill-site :focus-visible {"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 781,
+      "excerpt": ".grill-site a,"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 782,
+      "excerpt": ".grill-site button {"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 785,
+      "excerpt": ".grill-site button {"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1015,
+      "excerpt": ".grill-crop img {"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1028,
+      "excerpt": ".rib-stamp {"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1047,
+      "excerpt": ".rib-stamp strong {"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1744,
+      "excerpt": ".rib-stamp {"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1751,
+      "excerpt": ".rib-stamp strong {"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1812,
+      "excerpt": ".rib-stamp {"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1815,
+      "excerpt": "/* The grill photo is zoomed from its bottom-left corner to hide the price sign"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1816,
+      "excerpt": "on its right. Narrow phone frames need the zoom centred on the ribs instead,"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1817,
+      "excerpt": "or they sit at the top above a band of empty grill. */"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1818,
+      "excerpt": ".grill-crop img,"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1990,
+      "excerpt": ".grill-site *,"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1991,
+      "excerpt": ".grill-site *::before,"
+    },
+    {
+      "file": "resources/js/pages/Welcome.vue",
+      "line": 1992,
+      "excerpt": ".grill-site *::after {"
+    },
+    {
+      "file": "resources/js/pages/Dashboard.vue",
+      "line": 288,
+      "excerpt": "label: 'On the grill',"
+    },
+    {
+      "file": "resources/js/pages/Dashboard.vue",
+      "line": 405,
+      "excerpt": "<div class=\"grill-dashboard\">"
+    },
+    {
+      "file": "resources/js/pages/Dashboard.vue",
+      "line": 412,
+      "excerpt": "<h1>Today at <em>the grill.</em></h1>"
+    },
+    {
+      "file": "resources/js/pages/Dashboard.vue",
+      "line": 815,
+      "excerpt": "class=\"grill-dashboard checklist-backdrop\""
+    },
+    {
+      "file": "resources/js/pages/Dashboard.vue",
+      "line": 945,
+      "excerpt": ".grill-dashboard {"
+    },
+    {
+      "file": "resources/js/pages/Dashboard.vue",
+      "line": 1628,
+      "excerpt": ".grill-dashboard :focus-visible {"
+    },
+    {
+      "file": "resources/js/pages/Dashboard.vue",
+      "line": 1632,
+      "excerpt": ".grill-dashboard button {"
+    },
+    {
+      "file": "resources/js/pages/Dashboard.vue",
+      "line": 1684,
+      "excerpt": ".grill-dashboard {"
+    },
+    {
+      "file": "resources/js/pages/ProductManagement.vue",
+      "line": 1001,
+      "excerpt": "<input v-model=\"form.name\" type=\"text\" placeholder=\"e.g. Baby Back Ribs\""
+    },
+    {
+      "file": "resources/js/pages/PrintingArchitecture.vue",
+      "line": 24,
+      "excerpt": "title: 'How BypassGrill Prints a Receipt',"
+    },
+    {
+      "file": "resources/js/pages/PrintingArchitecture.vue",
+      "line": 192,
+      "excerpt": "<Head title=\"Printing Architecture — BypassGrill\" />"
+    },
+    {
+      "file": "resources/js/pages/PrintingArchitecture.vue",
+      "line": 200,
+      "excerpt": "<span class=\"font-black tracking-tight\">BypassGrill</span>"
+    },
+    {
+      "file": "resources/js/pages/Menu.vue",
+      "line": 8,
+      "excerpt": "name: 'Pork Monster Ribs',"
+    },
+    {
+      "file": "resources/js/pages/Menu.vue",
+      "line": 10,
+      "excerpt": "description: 'Slow-cooked pork ribs na malambot at makatas, binablog sa smoky BBQ sauce—malasa hanggang buto! Served with 1 rice and 1 side for a complete, sati"
+    },
+    {
+      "file": "resources/js/pages/Menu.vue",
+      "line": 35,
+      "excerpt": "<Head title=\"The Boys — Grilled Burgers Menu\" />"
+    },
+    {
+      "file": "resources/js/pages/Menu.vue",
+      "line": 38,
+      "excerpt": "<!-- Grill fire background effect -->"
+    },
+    {
+      "file": "resources/js/pages/Menu.vue",
+      "line": 52,
+      "excerpt": "<div class=\"text-[10px]\">GRILL</div>"
+    },
+    {
+      "file": "resources/js/pages/Menu.vue",
+      "line": 60,
+      "excerpt": "FRESH OFF THE GRILL"
+    },
+    {
+      "file": "resources/js/pages/Menu.vue",
+      "line": 63,
+      "excerpt": "Grill Combos Selections"
+    },
+    {
+      "file": "resources/js/pages/GumroadDescription.vue",
+      "line": 9,
+      "excerpt": "const rawCopy = `BypassGrill — Full-Stack Restaurant Management System"
+    },
+    {
+      "file": "resources/js/pages/GumroadDescription.vue",
+      "line": 13,
+      "excerpt": "BypassGrill is a complete Laravel 11 + Vue 3 (TypeScript) POS suite built for modern food businesses. From the cashier terminal to end-of-month financial distri"
+    },
+    {
+      "file": "resources/js/pages/GumroadDescription.vue",
+      "line": 61,
+      "excerpt": "<Head title=\"BypassGrill — Product Description\" />"
+    },
+    {
+      "file": "resources/js/pages/GumroadDescription.vue",
+      "line": 69,
+      "excerpt": "BypassGrill is a self-hosted Laravel + Vue 3 POS suite built for modern food businesses —"
+    },
+    {
+      "file": "resources/js/pages/ReportsPage.vue",
+      "line": 1355,
+      "excerpt": "<h1>THE NUMBERS <span>BEHIND THE GRILL.</span></h1>"
+    },
+    {
+      "file": "resources/js/pages/DepositControlPage.vue",
+      "line": 407,
+      "excerpt": "<div class=\"grill-page\">"
+    },
+    {
+      "file": "resources/js/pages/DepositControlPage.vue",
+      "line": 1408,
+      "excerpt": ".grill-page {"
+    },
+    {
+      "file": "resources/js/pages/DepositControlPage.vue",
+      "line": 2350,
+      "excerpt": ".grill-page :focus-visible {"
+    },
+    {
+      "file": "resources/js/pages/DepositControlPage.vue",
+      "line": 2354,
+      "excerpt": ".grill-page button {"
+    },
+    {
+      "file": "resources/js/pages/DepositControlPage.vue",
+      "line": 2389,
+      "excerpt": ".grill-page {"
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 12,
+      "excerpt": "<div class=\"grill-auth\">"
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 25,
+      "excerpt": "grill</Link"
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 33,
+      "excerpt": "RIB ENERGY."
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 35,
+      "excerpt": "<h2>PORK.<br />MONSTER.<br /><span>RIBS.</span></h2>"
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 40,
+      "excerpt": "src=\"/images/welcome/ribs-plate.jpg\""
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 41,
+      "excerpt": "alt=\"Illustrative stock photograph of glazed pork ribs on a serving board\""
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 51,
+      "excerpt": ">MEET YOU<br />AT THE<br /><strong>GRILL.</strong></span"
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 55,
+      "excerpt": "<p>Bring your appetite.<br />We'll bring the ribs.</p>"
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 70,
+      "excerpt": "<span>Just here for the ribs?</span"
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 88,
+      "excerpt": ".grill-auth {"
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 365,
+      "excerpt": ".grill-auth a:focus-visible {"
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 463,
+      "excerpt": ".grill-auth *,"
+    },
+    {
+      "file": "resources/js/layouts/auth/GrillAuthLayout.vue",
+      "line": 464,
+      "excerpt": ".grill-auth :deep(*) {"
+    },
+    {
+      "file": "resources/js/pages/settings/Logo.vue",
+      "line": 175,
+      "excerpt": "<span class=\"text-sm font-semibold text-sidebar-foreground\">{{ brandName || 'The Boys' }}</span>"
+    },
+    {
+      "file": "resources/js/pages/settings/Printing.vue",
+      "line": 59,
+      "excerpt": "{ name: 'Baby Back Ribs', quantity: 2, unit_price: 299 },"
+    },
+    {
+      "file": "resources/js/pages/settings/PrintSettings.vue",
+      "line": 84,
+      "excerpt": "const beamsTest = ref({ interest: 'print-jobs', title: 'Test from BypassGrill', body: 'Push notifications are working!' })"
+    },
+    {
+      "file": "resources/js/pages/settings/PrintSettings.vue",
+      "line": 192,
+      "excerpt": "different channels — e.g. <code class=\"bg-muted px-1 rounded\">BypassGrill</code> or"
+    },
+    {
+      "file": "resources/js/pages/settings/PrintSettings.vue",
+      "line": 312,
+      "excerpt": "placeholder=\"e.g. BypassGrill\""
+    }
+  ],
+  "git_pushed": false,
+  "built_or_deployed": false,
+  "approval_required": true,
+  "next_steps": [
+    "Review residual branding and strip source-specific business visuals",
+    "Run composer and npm install in staging",
+    "Run PHP tests and npm run build",
+    "Run Expo typecheck and release APK build",
+    "Confirm client admin onboarding and print service",
+    "Ask explicit user approval before any push"
+  ]
+}

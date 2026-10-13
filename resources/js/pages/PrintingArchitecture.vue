@@ -21,7 +21,7 @@ const slides: Slide[] = [
     {
         id: 'intro',
         kicker: 'Architecture',
-        title: 'How BypassGrill Prints a Receipt',
+        title: 'How DEMO POS Prints a Receipt',
         body: 'A receipt travels from the browser POS to a thermal printer in under a second — without any USB cable or local driver. Here is the journey, step by step.',
     },
     {
@@ -189,7 +189,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 </script>
 
 <template>
-    <Head title="Printing Architecture — BypassGrill" />
+    <Head title="Printing Architecture — DEMO POS" />
 
     <div class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white flex flex-col overflow-hidden">
 
@@ -197,7 +197,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
         <header class="flex items-center justify-between px-5 sm:px-8 py-4 border-b border-white/10 shrink-0">
             <div class="flex items-center gap-2">
                 <Receipt class="h-5 w-5 text-amber-400" />
-                <span class="font-black tracking-tight">BypassGrill</span>
+                <span class="font-black tracking-tight">DEMO POS</span>
                 <span class="text-white/40 text-sm hidden sm:inline">· Printing Architecture</span>
             </div>
             <div class="text-xs text-white/40 font-mono">{{ current + 1 }} / {{ slides.length }}</div>

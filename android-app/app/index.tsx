@@ -34,7 +34,7 @@ export default function Home(){
   <View style={[s.top,{paddingTop:8}]}><Pressable style={s.menuBtn} onPress={()=>setMenu(true)}><Text style={s.menuIcon}>☰</Text></Pressable><Text style={s.topBrand}>DEMO POS</Text><Pressable onPress={sync}><Text style={s.sync}>SYNC</Text></Pressable></View>
   <ScrollView contentContainerStyle={s.page}>
    <Text style={s.eye}>DEMO POS / DAILY OVERVIEW</Text>
-   <Text style={s.title}>Today at <Text style={s.em}>the grill.</Text></Text>
+   <Text style={s.title}>Today at <Text style={s.em}>the counter.</Text></Text>
    <Text style={s.intro}>{status}</Text>
    <Text style={s.date}>{new Date().toLocaleDateString('en-PH',{weekday:'long',month:'short',day:'numeric'})} - Manila</Text>
    <View style={s.work}><Text style={s.workTitle}>Ready for the next order?</Text><Text style={s.workCopy}>Take an order, collect payment, and keep the shift moving.</Text><Pressable style={s.workButton} onPress={()=>router.push('/pos')}><Text style={s.workButtonText}>OPEN POINT OF SALE  →</Text></Pressable></View>

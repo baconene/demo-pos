@@ -14,7 +14,7 @@ const brandName = ((page.props as any).brandName as string | null) ?? 'DEMO POS'
 
 <template>
     <div class="min-h-svh lg:grid lg:grid-cols-2">
-        <!-- Left panel — BypassGrill branding -->
+        <!-- Left panel — DEMO POS branding -->
         <div class="relative hidden lg:flex flex-col justify-between bg-zinc-950 p-12 overflow-hidden">
             <!-- Warm glow -->
             <div class="absolute inset-0 bg-gradient-to-br from-orange-950/60 via-zinc-950 to-zinc-950 pointer-events-none" />
@@ -37,7 +37,7 @@ const brandName = ((page.props as any).brandName as string | null) ?? 'DEMO POS'
             <div class="relative z-10 space-y-4">
                 <p class="text-orange-400 text-sm font-semibold uppercase tracking-widest">Restaurant POS</p>
                 <h1 class="text-4xl font-black text-white leading-tight">
-                    Your Grill,<br/>
+                    Your POS,<br/>
                     <span class="text-orange-400">Your Way.</span>
                 </h1>
                 <p class="text-zinc-400 text-base leading-relaxed max-w-xs">

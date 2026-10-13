@@ -285,7 +285,7 @@ const cards = computed(() => {
                 emphasis: true,
             },
             {
-                label: 'On the grill',
+                label: 'In progress',
                 value: props.stats.preparing_orders ?? 0,
                 note: 'Orders being prepared',
             },
@@ -409,7 +409,7 @@ function refresh() {
                     <Flame :size="14" aria-hidden="true" /> DEMO POS / DAILY
                     OVERVIEW
                 </p>
-                <h1>Today at <em>the grill.</em></h1>
+                <h1>Today at <em>the counter.</em></h1>
                 <p class="intro">
                     Welcome back, {{ page.props.auth.user.name }}. Here's what
                     needs your attention.

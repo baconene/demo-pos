@@ -43,11 +43,7 @@ const copyError = ref('');
 const paused = ref(false);
 const activeShot = ref(0);
 const root = ref<HTMLElement | null>(null);
-const menuCategories = computed(() =>
-    props.categories.filter(
-        (c) => !/\b(accessor(?:y|ies)|drinks?|beverages?)\b/i.test(c.name),
-    ),
-);
+const menuCategories = computed(() => props.categories);
 const products = computed(() =>
     menuCategories.value.flatMap((c) => c.products),
 );
@@ -108,12 +104,12 @@ watch(orderText, () => {
 const shots = [
     {
         src: '/images/demo-pos/placeholder.svg',
-        alt: 'Stock photograph of glazed pork ribs on a serving board',
+        alt: 'Preview of our upcoming product selection',
         label: 'Browse our latest selection.',
     },
     {
         src: '/images/demo-pos/placeholder.svg',
-        alt: 'Stock photograph of barbecue pork ribs at the grill',
+        alt: 'Preview of products available in the menu',
         label: 'See what we have in store.',
     },
 ];
@@ -203,13 +199,13 @@ onBeforeUnmount(() => {
     <Head title="Explore Our Menu · DEMO POS">
         <meta
             name="description"
-            content="Looking for something? Meet DEMO POS. Explore our menu, build your order, and connect with us on Facebook for Explore Our Menu and more."
+            content="Explore the DEMO POS menu, check item availability and prepare an order request."
         />
     </Head>
     <div ref="root" class="grill-site" :class="{ 'motion-paused': paused }">
         <a href="#menu" class="skip-link">Skip to menu</a>
         <div class="top-strip">
-            BIG APPETITE? YOU'RE IN THE RIGHT PLACE.
+            YOUR MENU. YOUR CHOICE.
             <Flame :size="13" aria-hidden="true" />
         </div>
         <header class="site-header">
@@ -222,8 +218,8 @@ onBeforeUnmount(() => {
                     width="48"
                     height="48"
                 /><span
-                    >BYPASS<span class="brand-sub"
-                        >GRILL / SIMPLE. FAST. RELIABLE.</span
+                    >DEMO POS<span class="brand-sub"
+                        >SIMPLE. FAST. RELIABLE.</span
                     ></span
                 ></a
             >
@@ -243,17 +239,16 @@ onBeforeUnmount(() => {
             <section class="hero">
                 <div class="hero-copy">
                     <p class="eyebrow">
-                        <span></span> MEET YOUR NEXT BIG CRAVING
+                        <span></span> DISCOVER THE MENU
                     </p>
                     <h1>
-                        PORK.<br />MONSTER.<br /><span>RIBS.</span
+                        YOUR.<br />NEXT.<br /><span>FAVORITE.</span
                         ><span class="headline-spark" aria-hidden="true"
                             >✳</span
                         >
                     </h1>
                     <p class="hero-description">
-                        Explore the latest items on our menu.<br />Bring your
-                        appetite. We'll bring the ribs.
+                        Explore the latest items on our menu.<br />Find something you love and add it to your order.
                     </p>
                     <div class="hero-actions">
                         <a href="#menu" class="button button-orange"
@@ -264,7 +259,7 @@ onBeforeUnmount(() => {
                         >
                     </div>
                     <a href="#our-grill" class="small-scroll"
-                        ><ArrowDown :size="16" /> A taste of DEMO POS</a
+                        ><ArrowDown :size="16" /> Discover DEMO POS</a
                     >
                 </div>
                 <div class="hero-visual">
@@ -276,7 +271,7 @@ onBeforeUnmount(() => {
                         <div class="back-card back-two"></div>
                         <figure
                             v-for="(shot, index) in shots"
-                            :key="shot.src"
+                            :key="index"
                             class="food-photo"
                             :class="{
                                 'is-front': activeShot === index,
@@ -301,7 +296,7 @@ onBeforeUnmount(() => {
                             </figcaption>
                         </figure>
                         <div class="rib-stamp" aria-hidden="true">
-                            BIG<br /><strong>RIB</strong><br />ENERGY
+                            EASY<br /><strong>POS</strong><br />ORDERING
                         </div>
                     </div>
                     <div class="photo-controls">
@@ -317,7 +312,7 @@ onBeforeUnmount(() => {
                                 0{{ index + 1 }}
                             </button>
                         </div>
-                        <span>Stock photography · serving may vary</span>
+                        <span>Menu preview · products added by staff</span>
                     </div>
                 </div>
             </section>
@@ -326,7 +321,7 @@ onBeforeUnmount(() => {
                 <div class="ticker-track">
                     <span v-for="n in 4" :key="n"
                         >DEMO POS <span>✳</span> DEMO POS
-                        <span>✳</span> BRING YOUR APPETITE <span>✳</span></span
+                        <span>✳</span> ORDER MADE SIMPLE <span>✳</span></span
                     >
                 </div>
             </div>
@@ -334,12 +329,11 @@ onBeforeUnmount(() => {
             <section id="menu" class="menu-section section-pad" data-reveal>
                 <div class="section-heading">
                     <div>
-                        <p class="eyebrow">YOUR CRAVING STARTS HERE</p>
-                        <h2>Pick your<br /><em>grill fix.</em></h2>
+                        <p class="eyebrow">BROWSE OUR MENU</p>
+                        <h2>Pick your<br /><em>favorites.</em></h2>
                     </div>
                     <p>
-                        Something for your appetite.<br />Something worth coming
-                        back for.
+                        Explore what's available today.<br />Choose your favorites.
                     </p>
                 </div>
                 <div
@@ -377,27 +371,13 @@ onBeforeUnmount(() => {
                                 loading="lazy"
                                 width="600"
                                 height="450"
-                            /><template v-else-if="/rib/i.test(product.name)"
-                                ><img
-                                    src="/images/demo-pos/placeholder.svg"
-                                    alt="Illustrative stock photograph of pork ribs"
-                                    loading="lazy"
-                                    width="600"
-                                    height="450"
-                                /><span class="image-note"
-                                    >Illustrative photo</span
-                                ></template
-                            >
+                            />
                             <div v-else class="product-placeholder">
                                 <Flame :size="64" /><span
                                     >AVAILABLE ON OUR MENU</span
                                 >
                             </div>
-                            <span
-                                v-if="/rib/i.test(product.name)"
-                                class="product-tag"
-                                >MONSTER APPETITE</span
-                            >
+                            
                             <span
                                 v-if="product.soldOut || product.lowStock"
                                 class="stock-banner"
@@ -444,7 +424,7 @@ onBeforeUnmount(() => {
                 <div v-else class="signature-feature">
                     <img
                         src="/images/demo-pos/placeholder.svg"
-                        alt="Illustrative pork ribs photograph"
+                        alt="DEMO POS product placeholder"
                         loading="lazy"
                         width="600"
                         height="600"
@@ -453,9 +433,7 @@ onBeforeUnmount(() => {
                         <p class="eyebrow">THE NAME SAYS IT ALL</p>
                         <h3>Explore Our Menu</h3>
                         <p>
-                            Your next rib craving starts at DEMO POS.
-                            Message us for the current menu, prices, and
-                            availability.
+                            Our team is getting the menu ready. Check back for the latest products, prices, and availability.
                         </p>
                         <a
                             v-if="facebook" :href="facebook"
@@ -463,12 +441,11 @@ onBeforeUnmount(() => {
                             rel="noopener noreferrer"
                             class="button button-dark"
                             >Ask about the menu <ArrowUpRight :size="18" /></a
-                        ><small>Stock photo for illustration.</small>
+                        ><small>Product previews are available once items are added.</small>
                     </div>
                 </div>
                 <p v-if="products.length" class="menu-footnote">
-                    Build an order request, then confirm availability and pickup
-                    or delivery details with us on Facebook.
+                    Build an order request and copy the details to share with our team.
                 </p>
             </section>
 
@@ -476,25 +453,22 @@ onBeforeUnmount(() => {
                 <div class="story-visual">
                     <img
                         src="/images/demo-pos/placeholder.svg"
-                        alt="Illustrative photograph of glazed pork ribs at a barbecue grill"
+                        alt="DEMO POS product placeholder"
                         loading="lazy"
                         width="1400"
                         height="933"
                     /><span class="story-label"
-                        >A LITTLE CHAR.<br />A LOT OF CHARACTER.</span
-                    ><small>Stock photography</small>
+                        >SIMPLY BETTER.<br />EVERYDAY SERVICE.</span
+                    ><small>Demo product imagery</small>
                 </div>
                 <div class="story-copy">
                     <p class="eyebrow">THIS IS DEMO POS</p>
-                    <h2>Take a break.<br />Make it <em>ribs.</em></h2>
+                    <h2>Easy ordering.<br /><em>Made simple.</em></h2>
                     <p>
-                        For the quick lunch that turns into a craving. For the
-                        barkada deciding what to eat. For the days when only a
-                        proper grill fix will do.
+                        Explore the menu, check what's available, and keep your order organized.
                     </p>
                     <p>
-                        Pull up a chair, bring someone hungry, and make Pork
-                        Monster Ribs part of your next DEMO POS stop.
+                        DEMO POS makes it easy to browse products and prepare your next order request.
                     </p>
                     <a
                         v-if="facebook" :href="facebook"
@@ -507,14 +481,14 @@ onBeforeUnmount(() => {
             </section>
 
             <section class="how-section section-pad" data-reveal>
-                <p class="eyebrow">FROM CRAVING TO CONVERSATION</p>
+                <p class="eyebrow">HOW IT WORKS</p>
                 <h2>Let's get your<br /><em>order started.</em></h2>
                 <div class="steps">
                     <article>
                         <span>01 /</span>
                         <h3>Pick your favorites.</h3>
                         <p>
-                            Browse the menu and add what you're craving to your
+                            Browse the menu and add your favorites to the
                             order.
                         </p>
                     </article>
@@ -522,8 +496,7 @@ onBeforeUnmount(() => {
                         <span>02 /</span>
                         <h3>Send us your list.</h3>
                         <p>
-                            Copy your order request and send it to our Facebook
-                            page.
+                            Copy your order request and share it directly with our team.
                         </p>
                     </article>
                     <article>
@@ -538,22 +511,22 @@ onBeforeUnmount(() => {
             </section>
             <section class="contact-banner" data-reveal>
                 <Flame :size="54" aria-hidden="true" />
-                <h2>HUNGRY?<br />WE THOUGHT SO.</h2>
+                <h2>READY TO<br />ORDER?</h2>
                 <a
                     v-if="facebook" :href="facebook"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="button button-dark"
-                    >Let's talk ribs <ArrowUpRight :size="20"
+                    >View the menu <ArrowUpRight :size="20"
                 /></a>
                 <p>
-                    Visit our Facebook page for updates and ordering inquiries.
+                    Browse the latest menu and check item availability with our team.
                 </p>
             </section>
         </main>
         <footer class="site-footer">
             <a href="#" class="brand"
-                >DEMO POS<span class="brand-sub">BIG RIB ENERGY.</span></a
+                >DEMO POS<span class="brand-sub">SIMPLE. FAST. RELIABLE.</span></a
             >
             <p>© {{ new Date().getFullYear() }} DEMO POS</p>
             <div>
@@ -712,7 +685,7 @@ onBeforeUnmount(() => {
             <div class="availability-panel">
                 <header class="availability-heading">
                     <div>
-                        <p class="eyebrow">LET'S CHECK WITH THE GRILL</p>
+                        <p class="eyebrow">LET'S CHECK AVAILABILITY</p>
                         <h2 id="availability-title">Availability check.</h2>
                     </div>
                     <button
@@ -766,16 +739,16 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .grill-site {
-    --ink: #24231e;
-    --cream: #f6f2e9;
-    --orange: #ef5b2a;
+    --ink: #0f172a;
+    --cream: #f8fafc;
+    --orange: #334155;
     background: var(--cream);
     color: var(--ink);
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
 }
 .grill-site :focus-visible {
-    outline: 3px solid #b83e17;
+    outline: 3px solid #334155;
     outline-offset: 5px;
 }
 .grill-site a,

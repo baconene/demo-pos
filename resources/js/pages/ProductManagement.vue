@@ -998,7 +998,7 @@ return
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div class="sm:col-span-2">
                                 <label class="text-xs font-medium text-muted-foreground block mb-1.5">Product Name *</label>
-                                <input v-model="form.name" type="text" placeholder="e.g. Baby Back Ribs"
+                                <input v-model="form.name" type="text" placeholder="e.g. Product Name"
                                     class="w-full rounded-lg border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
                             </div>
                             <div>

@@ -924,7 +924,7 @@ const typeColor: Record<string, string> = {
                     id="inventory-field-1"
                     v-model="newIngredient.name"
                     type="text"
-                    placeholder="e.g. Pork Ribs"
+                    placeholder="e.g. Product Ingredient"
                     class="w-full rounded-lg border bg-background px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:outline-none"
                 />
             </div>

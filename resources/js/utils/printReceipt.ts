@@ -1,6 +1,6 @@
 // ── Print settings (per-device, stored in localStorage) ─────────────────────
 
-const SETTINGS_KEY = 'bypassgrill_print_settings'
+const SETTINGS_KEY = 'demopos_print_settings'
 
 export interface PrintSettings {
     paperWidth: '57mm' | '80mm'
@@ -70,8 +70,8 @@ function buildReceiptHTML(o: ReceiptData, paperWidth: string): string {
   .flex1{flex:1;word-break:break-word;padding-right:3px;}
   .small{font-size:9px;} .total{font-size:13px;font-weight:bold;}
 </style></head><body>
-  <div class="center bold large">BYPASSGRILL</div>
-  <div class="center muted" style="font-size:9px;">Filipino Grill Restaurant</div>
+  <div class="center bold large">DEMO POS</div>
+  <div class="center muted" style="font-size:9px;">DEMO ADDRESS</div>
   <hr>
   <div class="center xlarge">${o.queueNumber ? '#' + o.queueNumber : 'Order #' + o.orderId}</div>
   <div class="center muted" style="font-size:9px;">${dateStr} &nbsp; ${timeStr}</div>

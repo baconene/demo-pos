@@ -453,7 +453,7 @@ const statusLabel: Record<string, string> = {
                     <Flame :size="14" aria-hidden="true" /> DEMO POS /
                     PEOPLE &amp; PAYROLL
                 </p>
-                <h1>The crew behind <em>the grill.</em></h1>
+                <h1>The crew behind <em>the team.</em></h1>
                 <p class="intro">
                     Manage your team, settle payroll, and see where payroll
                     money goes.

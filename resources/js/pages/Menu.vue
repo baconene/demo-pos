@@ -5,13 +5,13 @@ const props = defineProps<{ id: string }>();
 
 const menuItems = [
     {
-        name: 'Pork Monster Ribs',
+        name: 'Menu Item',
         price: '165.00',
-        description: 'Slow-cooked pork ribs na malambot at makatas, binablog sa smoky BBQ sauce—malasa hanggang buto! Served with 1 rice and 1 side for a complete, satisfying meal.',
+        description: 'A sample menu item na malambot at makatas, binablog sa smoky BBQ sauce—malasa hanggang buto! Served with 1 rice and 1 side for a complete, satisfying meal.',
         calories: '500 kcal'
     },
     {
-        name: 'Grilled Hungarian Sausage',
+        name: 'Prepared Hungarian Sausage',
         price: '99.00',
         description: 'Juicy Hungarian sausage na inihaw sa smoky perfection—malasa, smoky, at satisfying sa bawat kagat. Served with 1 rice and 1 side for a complete, satisfying meal.',
         calories: '560 - 750 kcal'
@@ -19,7 +19,7 @@ const menuItems = [
     {
         name: 'Boneless Chicken Thigh BBQ',
         price: '145.00',
-        description: 'Juicy boneless chicken thigh, marinated and grilled to perfection with our signature BBQ glaze—tender and flavorful. Served with 1 rice and 1 side for a complete, satisfying meal.',
+        description: 'Juicy boneless chicken thigh, marinated and storeed to perfection with our signature BBQ glaze—tender and flavorful. Served with 1 rice and 1 side for a complete, satisfying meal.',
         calories: '550 - 980 kcal'
     },
     {
@@ -32,10 +32,10 @@ const menuItems = [
 </script>
 
 <template>
-    <Head title="The Boys — Grilled Burgers Menu" />
+    <Head title="DEMO POS — Menu" />
 
     <div class="min-h-screen bg-black text-white">
-        <!-- Grill fire background effect -->
+        <!-- Menu background effect -->
         <div class="absolute inset-0 opacity-30 pointer-events-none" style="background: radial-gradient(ellipse at center, transparent 0%, rgba(255, 102, 0, 0.3) 100%);"></div>
 
         <!-- Content -->

@@ -91,7 +91,7 @@ class DemoPosSampleCatalogSeederTest extends TestCase
 
     public function test_completed_admin_setup_allows_training_catalog_when_business_ledgers_are_empty(): void
     {
-        $this->seed(\\Database\\Seeders\\RolePermissionSeeder::class);
+        $this->seed(\Database\Seeders\RolePermissionSeeder::class);
         $admin = User::factory()->create();
         $admin->assignRole(Role::findByName('admin', 'web'));
         DB::table('initial_admin_setup')->where('id', 1)->update(['completed_at' => now()]);
@@ -109,11 +109,11 @@ class DemoPosSampleCatalogSeederTest extends TestCase
 
     public function test_existing_financial_ledger_prevents_catalog_install_after_admin_setup(): void
     {
-        $this->seed(\\Database\\Seeders\\RolePermissionSeeder::class);
+        $this->seed(\Database\Seeders\RolePermissionSeeder::class);
         $admin = User::factory()->create();
         $admin->assignRole(Role::findByName('admin', 'web'));
         DB::table('initial_admin_setup')->where('id', 1)->update(['completed_at' => now()]);
-        \\App\\Models\\FinancialTransaction::create([
+        \App\Models\FinancialTransaction::create([
             'type' => 'income_adjustment',
             'amount' => 25,
             'description' => 'Existing business ledger record',
@@ -125,7 +125,7 @@ class DemoPosSampleCatalogSeederTest extends TestCase
 
         $this->assertSame(0, Category::count());
         $this->assertSame(0, Product::count());
-        $this->assertSame(1, \\App\\Models\\FinancialTransaction::count());
+        $this->assertSame(1, \App\Models\FinancialTransaction::count());
         $this->assertSame(1, User::count());
     }
 

@@ -1,17 +1,17 @@
 <?php
 
-namespace Database\\Seeders;
+namespace Database\Seeders;
 
-use App\\Models\\Category;
-use App\\Models\\Ingredient;
-use App\\Models\\Modifier;
-use App\\Models\\Product;
-use App\\Models\\Recipe;
-use App\\Models\\Supplier;
-use App\\Models\\User;
-use Illuminate\\Database\\Seeder;
-use Illuminate\\Support\\Facades\\DB;
-use Illuminate\\Support\\Facades\\Schema;
+use App\Models\Category;
+use App\Models\Ingredient;
+use App\Models\Modifier;
+use App\Models\Product;
+use App\Models\Recipe;
+use App\Models\Supplier;
+use App\Models\User;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * Seed a self-contained sample catalog only when the business catalog and

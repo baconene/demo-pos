@@ -1,0 +1,41 @@
+name: Android POS APK
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['android-app/**','.github/workflows/android-apk.yml']
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: android-app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npx expo prebuild --platform android --non-interactive
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Build standalone release APK
+        run: |
+          chmod +x android/gradlew
+          cd android
+          ./gradlew assembleRelease
+      - name: Verify embedded JS bundle
+        run: |
+          APK=android/app/build/outputs/apk/release/app-release.apk
+          test -f "$APK"
+          unzip -l "$APK" | grep -E 'index\.android\.bundle|assets/.*\.bundle' || {
+            echo "Release APK does not contain an embedded JS bundle"
+            exit 1
+          }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: demo-pos-release-apk
+          path: android-app/android/app/build/outputs/apk/release/app-release.apk
+          if-no-files-found: error

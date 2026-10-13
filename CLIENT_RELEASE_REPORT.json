@@ -1,0 +1,26 @@
+{
+  "business": "DEMO POS",
+  "client_repository": "baconene/demo-pos",
+  "source": "baconene/bypassgrill",
+  "source_commit": "5a3761d54e7f9e56eb6032d1993e34d21c868106",
+  "source_ref": "feature/android-pos-app",
+  "web_build_verified_in_initializer": true,
+  "validation_tests_verified_in_initializer": true,
+  "android_apk_build_verified": false,
+  "forge_deployed": false,
+  "initial_data": "roles and payment tenders only; no source menu/customers/users",
+  "customer_validation": {
+    "dine_in": [
+      "table_number"
+    ],
+    "takeout": [
+      "customer_name"
+    ],
+    "delivery": [
+      "customer_name",
+      "customer_contact",
+      "customer_address"
+    ]
+  },
+  "notes": "All production secrets must be provided through Forge. Admin onboarding and printer credentials remain unconfigured."
+}

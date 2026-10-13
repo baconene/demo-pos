@@ -1,0 +1,40 @@
+name: DEMO POS CI
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['**/*.md']
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer:v2
+          coverage: none
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install PHP and Node dependencies
+        run: |
+          composer install --no-interaction --prefer-dist --optimize-autoloader
+          npm ci
+      - name: Configure isolated SQLite test environment
+        run: |
+          cp .env.example .env
+          sed -i 's/^APP_ENV=.*/APP_ENV=testing/;s/^DB_CONNECTION=.*/DB_CONNECTION=sqlite/;s/^DB_DATABASE=.*/DB_DATABASE=:memory:/;s/^CACHE_STORE=.*/CACHE_STORE=array/;s/^SESSION_DRIVER=.*/SESSION_DRIVER=array/;s/^QUEUE_CONNECTION=.*/QUEUE_CONNECTION=sync/' .env
+          php artisan key:generate
+      - name: Build production frontend
+        run: npm run build
+      - name: Test DEMO POS required field matrix
+        run: php artisan test --filter=DemoPosOrderFieldValidationTest
+      - name: Validate PHP syntax on client order API
+        run: |
+          php -l app/Http/Requests/StoreOrderRequest.php
+          php -l app/Http/Controllers/Api/V1/MobilePosController.php

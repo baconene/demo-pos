@@ -1,6 +1,6 @@
 # DEMO POS — implementation and Forge deployment review
 
-**Status: PRE-PUSH DRAFT.** The connected GitHub target repository `baconene/demo-pos` was read-only inspected and was empty. **No GitHub writes were performed.** This kit operates on a local source checkout only; it does not contain the complete source repo.
+**Status: Historical pre-push plan, superseded by the initialized DEMO POS repository.** As of October 13, 2026, the approved master baseline has been copied to `baconene/demo-pos/main`, and the independent web CI passed Vite build and conditional-order validation. The site's Forge production deployment, database configuration, and Android APK release remain separate verification tasks. This document preserves the original approval gates as historical context.
 
 ## Selected source and source-of-truth policy
 

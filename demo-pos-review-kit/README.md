@@ -1,6 +1,6 @@
 # DEMO POS — pre-push review and implementation kit
 
-**STATUS: DRAFT FOR REVIEW. No changes have been pushed to `baconene/demo-pos`.**
+**STATUS: Historical pre-push review kit.** The DEMO POS application is now published to `baconene/demo-pos/main`. The one-time initializer was retired after the source and validation checks passed. This folder documents the reproducible source conversion; the repository root README is the current deployment guide.
 
 Client configuration:
 - Master/source: `baconene/bypassgrill` at commit `5a3761d54e7f9e56eb6032d1993e34d21c868106`, branch `feature/android-pos-app` (read-only source).

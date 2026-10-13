@@ -98,7 +98,11 @@ def replace_branding(root: Path) -> int:
             continue
         if f.is_relative_to(root / "tests") or f.is_relative_to(root / "database/seeders"):
             continue
-        text = f.read_text(encoding="utf-8")
+        try:
+            text = f.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            # Some upstream files have non-UTF-8 content despite source suffixes.
+            continue
         new = text
         for old, replacement in replacements:
             new = new.replace(old, replacement)
@@ -389,7 +393,11 @@ def residual_branding(root: Path) -> list[dict[str,str|int]]:
         if not f.is_file() or f.suffix.lower() not in SAFE_TEXT_EXTENSIONS:continue
         if f.is_relative_to(root/"tests"):continue
         relative=f.relative_to(root).as_posix()
-        for num,line in enumerate(f.read_text(encoding="utf-8").splitlines(),1):
+        try:
+            content = f.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+        for num,line in enumerate(content.splitlines(),1):
             if pat.search(line):
                 entries.append({"file":relative,"line":num,"excerpt":line.strip()[:160]})
     return entries

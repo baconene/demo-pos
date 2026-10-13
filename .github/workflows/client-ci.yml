@@ -34,6 +34,8 @@ jobs:
         run: npm run build
       - name: Test DEMO POS required field matrix
         run: php artisan test --filter=DemoPosOrderFieldValidationTest
+      - name: Test one-time administrator security and registration lockout
+        run: php artisan test --filter=InitialAdminSetupTest
       - name: Validate PHP syntax on client order API
         run: |
           php -l app/Http/Requests/StoreOrderRequest.php

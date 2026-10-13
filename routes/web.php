@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\InitialAdminSetupController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PosController;
 use App\Http\Controllers\QueueMonitorController;
@@ -15,6 +16,14 @@ use App\Http\Controllers\ParcelPageController;
 use App\Http\Controllers\WelcomeController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
+
+// Secret-protected, one-time onboarding, independent of public registration.
+Route::get('/setup/admin', [InitialAdminSetupController::class, 'show'])
+    ->middleware('throttle:30,1')
+    ->name('initial-admin.show');
+Route::post('/setup/admin', [InitialAdminSetupController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('initial-admin.store');
 
 // Source-specific promotional/demo pages are not published for this client.
 Route::get('/public/orders/{token}', [\App\Http\Controllers\PublicOrderController::class, 'show'])

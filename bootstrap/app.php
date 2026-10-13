@@ -40,5 +40,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        // Never flash the initial setup bearer token into session/Inertia old input
+        // on failed validation (Laravel already protects password fields).
+        $exceptions->dontFlash(['setup_token']);
     })->create();

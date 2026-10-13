@@ -35,4 +35,7 @@ return [
         ],
     ],
 
+    // Server-side only; keep secret in Forge, never in client-side props.
+    'initial_admin_setup_token' => env('INITIAL_ADMIN_SETUP_TOKEN'),
+
 ];

@@ -89,6 +89,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          # GITHUB_TOKEN cannot introduce new workflow files; install those separately.
+          rm -f .github/workflows/android-apk.yml .github/workflows/tests.yml .github/workflows/lint.yml
           git add -A
           if git diff --cached --quiet; then
             echo 'Client source already initialized.'

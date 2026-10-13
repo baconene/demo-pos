@@ -76,8 +76,9 @@ jobs:
           sed -i 's/^APP_ENV=.*/APP_ENV=testing/;s/^DB_CONNECTION=.*/DB_CONNECTION=sqlite/;s/^DB_DATABASE=.*/DB_DATABASE=:memory:/;s/^CACHE_STORE=.*/CACHE_STORE=array/;s/^SESSION_DRIVER=.*/SESSION_DRIVER=array/;s/^QUEUE_CONNECTION=.*/QUEUE_CONNECTION=sync/' .env
           php artisan key:generate
 
-      - name: Compile Vue / Vite production assets
+      - name: Repair inherited npm lockfile and compile Vue / Vite assets
         run: |
+          npm install --package-lock-only --ignore-scripts --no-audit --no-fund
           npm ci
           npm run build
 

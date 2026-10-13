@@ -1,0 +1,97 @@
+name: Initialize DEMO POS from approved source
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/client-bootstrap.yml'
+      - 'demo-pos-review-kit/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: demo-pos-client-bootstrap
+  cancel-in-progress: false
+
+jobs:
+  initialize:
+    if: github.repository == 'baconene/demo-pos'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout DEMO POS
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Checkout approved Bypass Grill source
+        uses: actions/checkout@v4
+        with:
+          repository: baconene/bypassgrill
+          ref: 5a3761d54e7f9e56eb6032d1993e34d21c868106
+          path: upstream
+          persist-credentials: false
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer:v2
+          coverage: none
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verify staged changes against approved source
+        run: |
+          test "$(git -C upstream rev-parse HEAD)" = '5a3761d54e7f9e56eb6032d1993e34d21c868106'
+          python3 -m unittest discover -s demo-pos-review-kit/tests -v
+          python3 demo-pos-review-kit/prepare_demo_pos.py --source upstream --destination /tmp/demo-pos-staged
+          test -f /tmp/demo-pos-staged/resources/js/pages/Welcome.vue
+          test -f /tmp/demo-pos-staged/android-app/assets/icon.png
+          test ! -e /tmp/demo-pos-staged/.env
+
+      - name: Copy client implementation to repository
+        run: |
+          cp -a /tmp/demo-pos-staged/. ./
+          rm -rf upstream
+          python3 - <<'PY'
+          from pathlib import Path
+          required=['resources/css/inventory-theme.css','resources/css/product-theme.css','resources/js/components/InventoryCostReport.vue','resources/js/components/InventoryDialog.vue','resources/js/components/RecipeBuilder.vue','resources/js/pages/reports/ServingTimeTab.vue']
+          missing=[p for p in required if not Path(p).is_file()]
+          if missing: raise SystemExit('Missing dependencies: '+', '.join(missing))
+          if Path('.env').exists(): raise SystemExit('Sensitive .env must not be copied')
+          print('Verified required Vite dependencies and secret isolation')
+          PY
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Configure disposable test environment
+        run: |
+          cp .env.example .env
+          sed -i 's/^APP_ENV=.*/APP_ENV=testing/;s/^DB_CONNECTION=.*/DB_CONNECTION=sqlite/;s/^DB_DATABASE=.*/DB_DATABASE=:memory:/;s/^CACHE_STORE=.*/CACHE_STORE=array/;s/^SESSION_DRIVER=.*/SESSION_DRIVER=array/;s/^QUEUE_CONNECTION=.*/QUEUE_CONNECTION=sync/' .env
+          php artisan key:generate
+
+      - name: Compile Vue / Vite production assets
+        run: |
+          npm ci
+          npm run build
+
+      - name: Test DEMO POS conditional order validation
+        run: php artisan test --filter=DemoPosOrderFieldValidationTest
+
+      - name: Confirm release contents, commit and push
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'Client source already initialized.'
+            exit 0
+          fi
+          git commit -m 'Initialize DEMO POS Laravel and Android clients from approved Bypass Grill baseline'
+          git push origin HEAD:main

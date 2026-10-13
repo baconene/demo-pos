@@ -1,0 +1,30 @@
+{
+  "business_name": "DEMO POS",
+  "repository": "baconene/demo-pos",
+  "source_repository": "baconene/bypassgrill",
+  "source_ref": "feature/android-pos-app",
+  "source_commit": "5a3761d54e7f9e56eb6032d1993e34d21c868106",
+  "domain": "demo-pos.baconologies.com",
+  "business_address": "DEMO ADDRESS",
+  "theme": "minimal",
+  "theme_primary": "#334155",
+  "theme_background": "#F8FAFC",
+  "web_pos": true,
+  "android_offline_pos": true,
+  "default_order_type": "dine_in",
+  "required_fields": {
+    "dine_in": ["table_number"],
+    "takeout": ["customer_name"],
+    "delivery": ["customer_name", "customer_contact", "customer_address"]
+  },
+  "printing": {
+    "web_cloud": true,
+    "android_bluetooth": true
+  },
+  "android": {
+    "display_name": "DEMO POS",
+    "slug": "demo-pos",
+    "scheme": "demopos",
+    "package": "com.baconologies.demopos"
+  }
+}

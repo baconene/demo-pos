@@ -36,6 +36,19 @@ jobs:
         run: php artisan test --filter=DemoPosOrderFieldValidationTest
       - name: Test one-time administrator security and registration lockout
         run: php artisan test --filter=InitialAdminSetupTest
+      - name: Test generic sample catalog and safe reruns
+        run: php artisan test --filter=DemoPosSampleCatalogSeederTest
+      - name: Test fictional four-month POS/financial history
+        run: php artisan test --filter=DemoPosHistoricalDataSeederTest
+      - name: Test royalty controller restoration and route listing
+        run: php artisan test --filter=RoyaltyRulesRouteTest
+      - name: Validate all Laravel routes resolve
+        run: |
+          php artisan route:list --path=setup/admin
+          php artisan route:list --path=api/v1/royalty-rules
+      - name: Validate PHP syntax for seeder and history classes
+        run: |
+          for file in database/seeders/*.php app/Services/DemoHistoryGenerator.php app/Console/Commands/SeedDemoHistory.php app/Http/Controllers/Api/V1/RoyaltyRuleController.php app/Models/RoyaltyRule.php; do php -l "$file"; done
       - name: Validate PHP syntax on client order API
         run: |
           php -l app/Http/Requests/StoreOrderRequest.php

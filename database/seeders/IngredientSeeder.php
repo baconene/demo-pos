@@ -2,13 +2,27 @@
 
 namespace Database\Seeders;
 
+use App\Models\Ingredient;
 use Illuminate\Database\Seeder;
 
-/** Client setup: sample source business data disabled. */
 class IngredientSeeder extends Seeder
 {
     public function run(): void
     {
-        // Populate business inventory and users through the client admin setup.
+        foreach (DemoCatalogSamples::INGREDIENTS as $data) {
+            Ingredient::firstOrCreate(['name' => $data['name']], array_merge($data, [
+                'item_type' => 'ingredient',
+                'track_inventory' => true,
+                'is_active' => true,
+            ]));
+        }
+
+        foreach (DemoCatalogSamples::FOODS as $data) {
+            Ingredient::firstOrCreate(['name' => $data['name']], array_merge($data, [
+                'item_type' => Ingredient::TYPE_FOOD,
+                'track_inventory' => true,
+                'is_active' => true,
+            ]));
+        }
     }
 }

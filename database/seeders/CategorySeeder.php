@@ -2,13 +2,20 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
-/** Client setup: sample source business data disabled. */
 class CategorySeeder extends Seeder
 {
     public function run(): void
     {
-        // Populate business inventory and users through the client admin setup.
+        foreach (DemoCatalogSamples::CATEGORIES as $data) {
+            Category::firstOrCreate(['slug' => $data['slug']], [
+                'name' => $data['name'],
+                'description' => 'Sample category for DEMO POS training.',
+                'display_order' => $data['display_order'],
+                'is_active' => true,
+            ]);
+        }
     }
 }

@@ -2,13 +2,33 @@
 
 namespace Database\Seeders;
 
+use App\Models\Modifier;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
-/** Client setup: sample source business data disabled. */
 class ModifierSeeder extends Seeder
 {
     public function run(): void
     {
-        // Populate business inventory and users through the client admin setup.
+        foreach (DemoCatalogSamples::MODIFIERS as $data) {
+            Modifier::firstOrCreate(['name' => $data['name']], [
+                'price' => $data['price'],
+                'is_active' => true,
+            ]);
+        }
+
+        foreach (DemoCatalogSamples::PRODUCTS as $data) {
+            if (! $data['modifiers']) {
+                continue;
+            }
+
+            $product = Product::query()->where('sku', $data['sku'])->first();
+            if (! $product) {
+                continue;
+            }
+
+            $ids = Modifier::query()->whereIn('name', $data['modifiers'])->pluck('id')->all();
+            $product->modifiers()->syncWithoutDetaching($ids);
+        }
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MenuController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PosController;
 use App\Http\Controllers\QueueMonitorController;
@@ -22,7 +21,8 @@ Route::get('/public/orders/{token}', [\App\Http\Controllers\PublicOrderControlle
     ->where('token', '[0-9a-f]{32}')
     ->name('public.orders.show');
 
-Route::get('menu/{id}', [MenuController::class, 'show'])
+// Legacy product QR menu links land on the live client menu, never demo seed products.
+Route::get('menu/{id}', fn () => redirect()->route('home'))
     ->where('id', '[0-9]+')
     ->name('menu.show');
 

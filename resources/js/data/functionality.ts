@@ -388,7 +388,7 @@ export const guides: Guide[] = [
         before: [
             'Sign in with Point of Sale access, then choose Point of Sale in the sidebar.',
             'Check the shift checklist and deposit-control session for your shift.',
-            'Use an available product and a configured Cash tender. The example is 1 Pork Monster Ribs at PHP 185.',
+            'Use an available product and a configured Cash tender. The example is 1 sample menu item at PHP 185.',
         ],
         done: 'Payment Complete appears with PHP 185 total and PHP 315 change from PHP 500.',
         steps: [
@@ -408,7 +408,7 @@ export const guides: Guide[] = [
             ),
             step(
                 'Choose the product',
-                'Click the Pork Monster Ribs product card. Use search or the category tabs when needed.',
+                'Click the sample menu item product card. Use search or the category tabs when needed.',
                 'The product window opens so you can review its quantity and any add-ons.',
                 '03-product',
                 'This example has an optional add-on, so a product window opens. A card without add-ons adds one item directly; skip the next step. The staff POS blocks sold-out products. The public storefront can still accept availability requests.',
@@ -416,7 +416,7 @@ export const guides: Guide[] = [
             step(
                 'Add it to the cart',
                 'Keep quantity at 1 and click Add to Cart. Select add-ons only when requested.',
-                'Pork Monster Ribs appears in Current order.',
+                'sample menu item appears in Current order.',
                 '04-add',
             ),
             step(
@@ -555,7 +555,7 @@ export const guides: Guide[] = [
             step(
                 'Change the items',
                 'Review the Editing order heading. Use the quantity controls, remove an item, or add another available product.',
-                'The cart total updates. The example changes ribs from 1 to 2.',
+                'The cart total updates. The example changes the sample item from 1 to 2.',
                 '15-edit',
             ),
             step(

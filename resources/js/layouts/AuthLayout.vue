@@ -17,13 +17,13 @@ const brandName = ((page.props as any).brandName as string | null) ?? 'DEMO POS'
         <!-- Left panel — DEMO POS branding -->
         <div class="relative hidden lg:flex flex-col justify-between bg-zinc-950 p-12 overflow-hidden">
             <!-- Warm glow -->
-            <div class="absolute inset-0 bg-gradient-to-br from-orange-950/60 via-zinc-950 to-zinc-950 pointer-events-none" />
-            <div class="absolute -bottom-32 -left-16 w-96 h-96 rounded-full bg-orange-600/20 blur-3xl pointer-events-none" />
-            <div class="absolute top-24 right-8 w-64 h-64 rounded-full bg-amber-500/10 blur-2xl pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-zinc-950 to-zinc-950 pointer-events-none" />
+            <div class="absolute -bottom-32 -left-16 w-96 h-96 rounded-full bg-slate-600/20 blur-3xl pointer-events-none" />
+            <div class="absolute top-24 right-8 w-64 h-64 rounded-full bg-slate-500/10 blur-2xl pointer-events-none" />
 
             <!-- Logo -->
             <Link :href="home()" class="relative z-10 flex items-center gap-3">
-                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500 shadow-lg shadow-orange-500/30">
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-700 shadow-lg shadow-slate-700/30">
                     <img v-if="logoUrl" :src="logoUrl" class="h-8 w-8 object-contain rounded-lg" alt="Logo" />
                     <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 42" class="h-6 w-6 fill-white">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -35,10 +35,10 @@ const brandName = ((page.props as any).brandName as string | null) ?? 'DEMO POS'
 
             <!-- Hero text -->
             <div class="relative z-10 space-y-4">
-                <p class="text-orange-400 text-sm font-semibold uppercase tracking-widest">Restaurant POS</p>
+                <p class="text-slate-300 text-sm font-semibold uppercase tracking-widest">DEMO POS</p>
                 <h1 class="text-4xl font-black text-white leading-tight">
                     Your POS,<br/>
-                    <span class="text-orange-400">Your Way.</span>
+                    <span class="text-slate-300">Your Way.</span>
                 </h1>
                 <p class="text-zinc-400 text-base leading-relaxed max-w-xs">
                     Seamless ordering, kitchen management, and real-time reporting — all in one place.
@@ -56,7 +56,7 @@ const brandName = ((page.props as any).brandName as string | null) ?? 'DEMO POS'
             <div class="w-full max-w-sm space-y-8">
                 <!-- Mobile logo (only shows on small screens) -->
                 <Link :href="home()" class="flex items-center justify-center gap-2 lg:hidden">
-                    <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-orange-500">
+                    <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-700">
                         <img v-if="logoUrl" :src="logoUrl" class="h-7 w-7 object-contain rounded-lg" alt="Logo" />
                         <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 42" class="h-5 w-5 fill-white">
                             <path fill-rule="evenodd" clip-rule="evenodd"

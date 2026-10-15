@@ -25,7 +25,28 @@ Route::post('/setup/admin', [InitialAdminSetupController::class, 'store'])
     ->middleware('throttle:5,1')
     ->name('initial-admin.store');
 
-// Source-specific promotional/demo pages are not published for this client.
+// Public, read-only training pages. Screenshots contain fictional sample data.
+Route::inertia('/demo/functionality', 'DemoFunctionality')->name('demo.functionality');
+Route::inertia('/demo/functionality/dashboard', 'DemoFunctionality', ['guide' => 'dashboard'])->name('demo.dashboard');
+Route::inertia('/demo/functionality/orders', 'DemoFunctionality', ['guide' => 'orders'])->name('demo.orders');
+Route::inertia('/demo/functionality/deposit-control', 'DemoFunctionality', ['guide' => 'deposit-control'])->name('demo.deposit');
+Route::inertia('/demo/functionality/financial', 'DemoFunctionality', ['guide' => 'financial'])->name('demo.financial');
+Route::inertia('/demo/functionality/reports', 'DemoFunctionality', ['guide' => 'reports'])->name('demo.reports');
+Route::get('/demo/functionality/reports/{report}', function (string $report) {
+    abort_unless(in_array($report, [
+        'orders', 'daily', 'monthly', 'products', 'pl',
+        'financial', 'bills', 'inventory', 'heatmap', 'serving',
+    ], true), 404);
+
+    return \Inertia\Inertia::render('DemoFunctionality', ['guide' => 'reports-'.$report]);
+})->name('demo.reports.guide');
+Route::inertia('/demo/functionality/POS', 'DemoFunctionality', ['guide' => 'POS'])->name('demo.pos');
+Route::get('/demo/functionality/POS/{guide}', function (string $guide) {
+    abort_unless(in_array($guide, ['cancelOrder', 'pendingPayment', 'modifyOrder', 'gcash', 'receipt'], true), 404);
+
+    return \Inertia\Inertia::render('DemoFunctionality', ['guide' => $guide]);
+})->name('demo.pos.guide');
+
 Route::get('/public/orders/{token}', [\App\Http\Controllers\PublicOrderController::class, 'show'])
     ->where('token', '[0-9a-f]{32}')
     ->name('public.orders.show');
